@@ -19,3 +19,13 @@ public class Acchandler
 
 
 
+
+trigger Accounttrigger6 on Account (after insert) 
+{
+if(trigger.isinsert && trigger.isafter)
+    {
+        Acchandler.accountcon(trigger.new);
+        system.debug('trigger.new =' + trigger.new);
+        system.debug('trigger.newmap =' + trigger.newmap);
+    }
+
